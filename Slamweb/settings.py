@@ -101,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Slamweb',
         'USER': 'postgres',
-        'PASSWORD': 'Nishant@0510',
+        'PASSWORD': '',
         'HOST': 'localhost'
     }
 }
