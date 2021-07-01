@@ -1,0 +1,32 @@
+.search{
+    display: inline-block;
+    margin-left: 80px;
+}
+#search_button{
+    padding: 5px;
+    padding-left: 10px;
+    border: 2px solid hotpink;
+}
+#search_button::placeholder{
+    color: hotpink;
+    font-family: cursive;
+    font-weight: bold;
+}
+#search_submit_button{
+    height: 38px;
+    border-radius: 50px;
+    margin-top: 0px;
+}
+input[type=search]{
+    border-radius: 20px;
+    width: 50vw;
+}
+input[type=search]:focus{
+    outline: none;
+}
+.slam{
+    height: 300px;
+    border: 2px solid hotpink;
+    border-radius: 20px;
+    margin: 10px;
+}

@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Handlee">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    {% block csslink %}
+    {% endblock csslink %}
+    <title>
+        {% block title %}
+        SlamWeb | Enjoy it!
+        {% endblock title %}
+    </title>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Not a actual navbar but just taken nav tag to make upper logo,slogan row easy -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand mr-0" href="{% url 'main:index' %}">
+                <img src="{% static 'images/slamweb_logo2.jpg' %}" width="50" height="50" alt="">
+            </a>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'main:index' %}"><h1 class="brand-name mr-100">SlamWeb</h1></a>
+                </li>
+                <li>
+                    <h3 class="slogan">"Know yourself from your closed ones"</h3>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'accounts:logout' %}" id="logout" class="btn btn-light btn-sm btn-outline-dark">Logout</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="profile-image" width="40" height="40" src="{% static 'images/profile-icon.png' %}" alt="profile-image">
+                        <h6 class="username">{{user.username}}</h6>
+                    </a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'accounts:login' %}" id="login" class="btn btn-light btn-sm btn-outline-dark">Login</a>
+                </li>
+                <li>
+                    <a href="{% url 'accounts:register' %}" id="register" class="btn btn-dark btn-sm btn-outline-light">Register</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="profile-image" width="40" height="40" src="{% static 'images/profile-icon.png' %}" alt="profile-image">
+                        <h6 class="username">username</h6>
+                    </a>
+                </li>
+                {% endif %}
+                
+                
+            </ul>
+        </nav>
+        <!-- Actual Upeer navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand home" href="{% url 'main:index' %}"><h4 class="_home">Home</h4></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item uppernav_item">
+                        <a class="nav-link" href="#"><h6>Custom</h6></a>
+                    </li>
+                    <li class="nav-item dropdown uppernav_item">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <h6 style="display: inline;">Default</h6>
+                        </a>
+                        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <h5 class="dropdown-header">Whom you want to slamming :</h5>
+                            <a class="dropdown-item text-light dropdown_item" href="#">Friend</a>
+                            <a class="dropdown-item text-light dropdown_item" href="#">BoyFriend</a>
+                            <a class="dropdown-item text-light dropdown_item" href="#">GirlFriend</a>
+                            <a class="dropdown-item text-light dropdown_item" href="#">Relatives</a>
+                            <a class="dropdown-item text-light dropdown_item" href="#">Stranger</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-light dropdown_item" href="#">Someone Other</a>
+                        </div>
+                    </li>
+                    <li class="nav-item uppernav_item">
+                        <a class="nav-link" href="#"><h6>Send</h6></a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="" onclick="notiFunc()">
+                        <img id="notification-icon" src="{% static 'images/notification-icon4.png' %}" alt="">
+                        <p id="notifications">
+                            2
+                        </p>
+                    </a>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Invite</button>
+                </form>
+            </div>
+        </nav>
+        <br>
+        <!-- Side navigation bar -->
+        <div class="sidenav">
+            <ul class="nav nav-pills sidenav_list">
+                <li id="sidenav_item" class="nav-item">
+                    <a id="sidenav_link" class="nav-link" href="#">Fill</a>
+                </li>
+                <li id="sidenav_item" class="nav-item">
+                    <a id="sidenav_link" class="nav-link" href="#">Edit</a>
+                </li>
+                <li id="sidenav_item" class="nav-item">
+                    <a id="sidenav_link" class="nav-link" href="#">Send</a>
+                </li>
+                <li id="sidenav_item" class="nav-item">
+                    <a id="sidenav_link" class="nav-link" href="#">About Us</a>
+                </li>
+                <li id="sidenav_item" class="nav-item">
+                    <a id="sidenav_link" class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Body for other pages -->
+        {% block body %}
+
+        {% endblock body %}
+        
+    
+
+        <!-- Footer text -->
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-4">
+            <div class="container text-center text-md-left">
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <ul class="list-unstyled list-inline text-center py-2">
+                            <li class="list-inline-item">
+                                <h5 class="mb-1">Register for free</h5>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{% url 'accounts:login' %}" class="btn btn-outline-light btn-dark">Sign up!</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+                <hr>
+
+                <!-- Social buttons -->
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <ul class="list-unstyled list-inline text-center">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-fb mx-1" href="#">
+                            <i class="fab fa-facebook-f">facebook </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-tw mx-1" href="#">
+                            <i class="fab fa-twitter">twitter </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-gplus mx-1" href="#">
+                            <i class="fab fa-google-plus-g">google </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-li mx-1" href="#">
+                            <i class="fab fa-linkedin-in">LinkedIn </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-dribbble mx-1" href="#">
+                            <i class="fab fa-dribbble">Other </i>
+                            </a>
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                <!-- Social buttons -->
+        
+                <!-- Copyright -->
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4 footer-copyright text-center py-3">© 2021 Copyright:
+                        <a href="#"> SlamWeb.com</a>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+                <!-- Copyright -->
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="{% static 'js/layout.js' %}"></script>
+</body>
+</html>

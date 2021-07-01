@@ -1,0 +1,134 @@
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand);
+@import url(https://fonts.googleapis.com/css?family=Handlee);
+.brand-name{
+    font-size: 40px;
+    font-weight: 200;
+    font-family: Handlee;
+    color: hotpink;
+}
+.slogan{
+    position: absolute;
+    top: 13px;
+    left: 350px;
+    color: hotpink;
+    font-family: cursive;
+}
+#login{
+    position: absolute;
+    top: 15px;
+    left: 1050px;
+}
+#logout{
+    position: absolute;
+    top: 15px;
+    right: 70px;
+}
+#register{
+    position: absolute;
+    top: 15px;
+    left: 1104px;
+}      
+.btn-outline-light,.btn-outline-dark{
+    transition: 0.5s;
+}
+.btn-outline-light:hover{
+    transition: 0.5s;
+    border: 1px solid black;
+}
+.profile-image{
+    position: absolute;
+    top: 3px;
+    right: 5px;
+}
+.username{
+    position: absolute;
+    top: 45px;
+    right: -5px;
+    text-decoration: none;
+    font-family: Handlee;
+    color: hotpink;
+}
+.dropdown_item:hover{
+    background-color: hotpink;
+}
+.dropdown-header{
+    margin: 2px;
+    color: chartreuse;
+}
+.uppernav_item{
+    margin-right: 50px;
+}
+.home{
+    padding-left: 15px;
+    padding-right: 90px; 
+}
+._home{
+    color: yellowgreen;
+    font-family: cursive;
+}
+._home:hover{
+    color: hotpink;
+}
+h6{
+    color: hotpink;
+}
+#notification-icon{
+    width:25px;
+    display: inline-block;
+    margin-left: 15px;
+}
+#notifications{
+    display: inline-block;
+    text-align: center;
+    color:black;
+    background-color: hotpink;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 15px;
+    position: relative;
+    right: 15px;
+    top: -6px;
+    z-index: 2;
+}
+.sidenav{
+    position: absolute;
+    display: inline-block;
+    width: 20%;
+    height: 80vh;
+    border-right: 2px solid black;
+}
+.sidenav_list{
+    display: inline-block;
+    width: 100%;
+}
+.sidenav .nav-link{
+    font-size: large;
+    font-family: cursive;
+    font-weight: bold;
+}
+#sidenav_item{
+    color: hotpink;
+    border: 1px solid hotpink;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-right: 8px;
+    text-align: center;
+    transition: 0.5s; 
+}
+#sidenav_link{
+    color: hotpink;
+}
+#sidenav_item:hover{
+    background-color: lightpink;
+    transition: 0.5s;
+}
+#sidenav_link:hover{
+    color: yellowgreen;
+}
+footer{
+    width: 96vw;
+    background-color: lightgray;
+}

@@ -1,0 +1,31 @@
+{% extends 'account/login.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}
+SlamWeb | Register
+{% endblock title %}
+
+{% block body %}
+    <div class="container">
+        <form action="{% url 'accounts:register' %}" method="POST">
+            {% csrf_token %}
+            <h1 style="font-family: cursive;">SlamWeb</h1>
+            <label for="email" style="font-family: cursive;">Email</label><br>
+            <input type="email" name="email" id="email" placeholder="Enter Email" required><br>
+            <label for="username" style="font-family: cursive;">Username</label><br>
+            <input type="text" name="username" id="username" placeholder="Enter Username" required><br>
+            <label for="password1" style="font-family: cursive;">Password</label><br>
+            <input type="password" name="password1" id="password1" placeholder="Enter Password" required><br>
+            <label for="password2" style="font-family: cursive;">Confirm Password</label><br>
+            <input type="password" name="password2" id="password2" placeholder="Confirm Password" required>
+            <br><br>
+            <input type="submit">
+            <br><br>
+            <a href="{% provider_login_url 'google' %}" class="btn btn-danger" style="border-radius: 25px;" role="button">Login/Register with Google</a>
+            <br><br>
+            <h4 style="font-family: cursive;">Already have an Account? <br> <a href="{% url 'accounts:login' %}">Login</a></h4>
+            <h4 style="font-family: cursive;"><a href="{% url 'main:index' %}">Home Page</a></h4>
+        </form>
+    </div>
+{% endblock body %}
